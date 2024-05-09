@@ -260,7 +260,7 @@ workflows:
           auth:
             - aws-cli/setup:
                 profile_name: default
-                role_arn: arn:aws:iam::992382483259:role/ambassador
+                role_arn: arn:aws:iam::216693060274:role/ambassador-lab1
                 role_session_name: example-session
           cluster: ambassador
           container_image_name_updates: container=ambassador-amd,image-and-tag=public.ecr.aws/${AWS_ECR_PUBLIC_REGISTRY_ALIAS}/ambassador:${CIRCLE_SHA1}
@@ -273,7 +273,7 @@ workflows:
           auth:
             - aws-cli/setup:
                 profile_name: default
-                role_arn: arn:aws:iam::992382483259:role/ambassador
+                role_arn: arn:aws:iam::216693060274:role/ambassador-lab1
                 role_session_name: example-session
           cluster: ambassador
           container_image_name_updates: container=ambassador-arm,image-and-tag=public.ecr.aws/${AWS_ECR_PUBLIC_REGISTRY_ALIAS}/ambassador:${CIRCLE_SHA1}

@@ -197,7 +197,7 @@ jobs:
       - enable-docker-experimental
       - aws-cli/setup:
           profile_name: default
-          role_arn: arn:aws:iam::992382483259:role/ambassador
+          role_arn: arn:aws:iam::216693060274:role/ambassador-lab1
           role_session_name: example-session
       - aws-ecr/ecr_login:
           public_registry: true

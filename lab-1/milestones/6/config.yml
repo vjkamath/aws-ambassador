@@ -53,8 +53,8 @@ commands:
           at: /tmp
       - run: ls -lah /tmp/docker-images/
       - run:
-            name: Loading Docker Image
-            command: docker load --input /tmp/docker-images/${DOCKER_IMAGE}-$(docker version -f {{.Server.Arch}})-${CIRCLE_SHA1}.tar
+          name: Loading Docker Image
+          command: docker load --input /tmp/docker-images/${DOCKER_IMAGE}-$(docker version -f {{.Server.Arch}})-${CIRCLE_SHA1}.tar
 
   testing-docker-image:
     description: "Launches tests against a Docker image"
@@ -90,7 +90,7 @@ commands:
           name: Set Version
           command: |
             echo "export VERSION=$(cat VERSION)" >> $BASH_ENV
-            source $BASH_ENV 
+            source $BASH_ENV
       - run:
           name: Build Docker Image
           command: docker build -f Dockerfile -t ${DOCKER_IMAGE}:${CIRCLE_SHA1} --build-arg VERSION=${VERSION} --build-arg CIRCLE_BUILD_URL=${CIRCLE_BUILD_URL} --build-arg CIRCLE_SHA1=${CIRCLE_SHA1} --build-arg CIRCLE_USERNAME=${CIRCLE_USERNAME} --build-arg CIRCLE_BUILD_NUM=${CIRCLE_BUILD_NUM} .
@@ -110,7 +110,7 @@ executors:
   browsers-python:
     docker:
       - image: cimg/python:3.9-browsers
-  
+
   arm64:
     machine:
       image: ubuntu-2204:current
@@ -137,7 +137,7 @@ jobs:
       - run-pytest:
           requirements-path: "./demo/requirements/testing.txt"
           pytest-args: "--live-server-port 8080 --verbose --junitxml=test-results/junit.xml"
-      
+
   build-image:
     parameters:
       architecture:
@@ -225,7 +225,6 @@ jobs:
     environment:
       DOCKER_IMAGE: multi-arch-circleci-demo
       ECR_REPO: ambassador
-
 
 workflows:
   demo:

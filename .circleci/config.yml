@@ -224,7 +224,7 @@ jobs:
             docker manifest push public.ecr.aws/${AWS_ECR_PUBLIC_REGISTRY_ALIAS}/${ECR_REPO}:latest
     environment:
       DOCKER_IMAGE: multi-arch-circleci-demo
-      ECR_REPO: ambassador
+      ECR_REPO: ambassador-lab1
 
 workflows:
   demo:
